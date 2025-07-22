@@ -26,7 +26,7 @@ export const Hero = () => {
                 Emergency Medical System
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                <span className="text-primary">QRUPAY</span> – Your Life,
+                <span className="text-primary">QR</span>UPAY – Your Life,
                 <br />
                 <span className="text-foreground">One Scan Away</span>
               </h1>

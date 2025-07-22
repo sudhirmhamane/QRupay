@@ -86,7 +86,7 @@ const Auth = () => {
         <CardHeader className="text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Heart className="w-8 h-8 text-medical-primary" />
-            <h1 className="text-2xl font-bold text-medical-dark">QRUPA</h1>
+            <h1 className="text-2xl font-bold text-medical-dark">QRUPAY</h1>
           </div>
           <CardTitle className="text-xl">
             {isLogin ? 'Sign In' : 'Create Account'}
