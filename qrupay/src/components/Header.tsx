@@ -48,22 +48,41 @@ export const Header = () => {
               <Heart className="w-6 h-6 text-primary-foreground" />
             </div>
             <span className="text-2xl font-bold">
-              <span  className="text-primary">QR</span>UPAY
+              <span className="text-primary">QR</span>UPAY
             </span>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => handleSectionNav('features')} className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer">Features</button>
-            <button onClick={() => handleSectionNav('how-it-works')} className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer">How It Works</button>
-            <Link to="/first-aid" className="text-foreground hover:text-primary transition-colors">First Aid</Link>
-            <Link to="/health-education" className="text-foreground hover:text-primary transition-colors">Health Education</Link>
-            <Link to="/health-services" className="text-foreground hover:text-primary transition-colors">Health Services</Link>
+            <button
+              onClick={() => handleSectionNav("features")}
+              className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer"
+            >
+              Features
+            </button>
+            <button
+              onClick={() => handleSectionNav("how-it-works")}
+              className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer"
+            >
+              How It Works
+            </button>
+            {user && (
+              <Link
+                to="/dashboard"
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                Dashboard
+              </Link>
+            )}
           </nav>
 
           {!user && (
             <div className="hidden md:flex items-center gap-4">
-              <Button variant="ghost" onClick={() => navigate('/auth')}>Sign In</Button>
-              <Button variant="medical" onClick={() => navigate('/auth')}>Get Started</Button>
+              <Button variant="ghost" onClick={() => navigate("/auth")}>
+                Sign In
+              </Button>
+              <Button variant="medical" onClick={() => navigate("/auth")}>
+                Get Started
+              </Button>
             </div>
           )}
 
@@ -80,17 +99,49 @@ export const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4 border-t">
             <nav className="flex flex-col gap-4">
-              <button onClick={() => handleSectionNav('features')} className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer text-left">Features</button>
-              <button onClick={() => handleSectionNav('how-it-works')} className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer text-left">How It Works</button>
-              <Link to="/first-aid" className="text-foreground hover:text-primary transition-colors">First Aid</Link>
-              <Link to="/health-education" className="text-foreground hover:text-primary transition-colors">Health Education</Link>
-              <Link to="/health-services" className="text-foreground hover:text-primary transition-colors">Health Services</Link>
-              <Link to="/" className="text-foreground hover:text-primary transition-colors">Home</Link>
+              <button
+                onClick={() => handleSectionNav("features")}
+                className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer text-left"
+              >
+                Features
+              </button>
+              <button
+                onClick={() => handleSectionNav("how-it-works")}
+                className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer text-left"
+              >
+                How It Works
+              </button>
+              {user && (
+                <Link
+                  to="/dashboard"
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  Dashboard
+                </Link>
+              )}
+              <Link
+                to="/"
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                Home
+              </Link>
             </nav>
             {!user && (
               <div className="flex flex-col gap-2 pt-4 border-t">
-                <Button variant="ghost" className="justify-start" onClick={() => navigate('/auth')}>Sign In</Button>
-                <Button variant="medical" className="justify-start" onClick={() => navigate('/auth')}>Get Started</Button>
+                <Button
+                  variant="ghost"
+                  className="justify-start"
+                  onClick={() => navigate("/auth")}
+                >
+                  Sign In
+                </Button>
+                <Button
+                  variant="medical"
+                  className="justify-start"
+                  onClick={() => navigate("/auth")}
+                >
+                  Get Started
+                </Button>
               </div>
             )}
           </div>

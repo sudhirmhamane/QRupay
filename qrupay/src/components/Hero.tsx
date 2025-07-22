@@ -32,7 +32,7 @@ export const Hero = () => {
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Store critical medical information securely. Generate a QR code for instant emergency access. 
-                When every second counts, MedLink ensures your medical data is always available.
+                When every second counts, QRUPAY ensures your medical data is always available.
               </p>
             </div>
 
