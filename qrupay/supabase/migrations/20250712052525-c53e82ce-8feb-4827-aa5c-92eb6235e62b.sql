@@ -124,3 +124,11 @@ CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW
   EXECUTE FUNCTION public.handle_new_user();
+
+  -- Add new columns to medical_profiles
+ALTER TABLE public.medical_profiles
+  ADD COLUMN gender TEXT,
+  ADD COLUMN age INTEGER,
+  ADD COLUMN address TEXT,
+  ADD COLUMN weight NUMERIC,
+  ADD COLUMN profile_photo_url TEXT;

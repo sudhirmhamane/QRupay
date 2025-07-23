@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { supabase } from '@/integrations/supabase/client';
-import { Heart, Phone, AlertTriangle, Pill, FileText, ArrowLeft } from 'lucide-react';
+import { Heart, Phone, AlertTriangle, Pill, FileText, ArrowLeft, User } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 interface MedicalProfile {
@@ -16,6 +16,10 @@ interface MedicalProfile {
   emergency_contact_phone: string;
   emergency_contact_relation: string | null;
   additional_notes: string | null;
+  gender?: string | null;
+  age?: string | number | null;
+  address?: string | null;
+  weight?: string | number | null;
 }
 
 const EmergencyView = () => {
@@ -28,6 +32,7 @@ const EmergencyView = () => {
 
   useEffect(() => {
     fetchMedicalProfile();
+    // eslint-disable-next-line
   }, [profileId]);
 
   const fetchMedicalProfile = async () => {
@@ -110,15 +115,6 @@ const EmergencyView = () => {
                 Critical health information for emergency responders
               </p>
             </div>
-            {/* {user && (
-              <button
-                onClick={() => navigate('/dashboard')}
-                className="flex items-center gap-1 text-white bg-medical-secondary px-4 py-2 rounded hover:bg-medical-primary transition-colors self-center sm:self-auto"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Dashboard
-              </button>
-            )} */}
           </div>
         </div>
       </header>
@@ -159,6 +155,44 @@ const EmergencyView = () => {
             </CardContent>
           </Card>
 
+          {/* Personal Details Section */}
+          <Card className="border-medical-accent border-2">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-medical-accent">
+                <User className="w-5 h-5" />
+                Personal Details
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex flex-wrap gap-6 text-base text-medical-dark font-medium">
+                {medicalProfile.gender && (
+                  <div>
+                    <span className="block text-muted-foreground text-sm">Gender</span>
+                    <span>{medicalProfile.gender}</span>
+                  </div>
+                )}
+                {medicalProfile.age && (
+                  <div>
+                    <span className="block text-muted-foreground text-sm">Age</span>
+                    <span>{medicalProfile.age}</span>
+                  </div>
+                )}
+                {medicalProfile.weight && (
+                  <div>
+                    <span className="block text-muted-foreground text-sm">Weight</span>
+                    <span>{medicalProfile.weight} kg</span>
+                  </div>
+                )}
+                {medicalProfile.address && (
+                  <div className="w-full">
+                    <span className="block text-muted-foreground text-sm">Address</span>
+                    <span>{medicalProfile.address}</span>
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
           <div className="grid md:grid-cols-2 gap-6">
             {/* Critical Information */}
             <Card>
@@ -177,6 +211,13 @@ const EmergencyView = () => {
                     </Badge>
                   </div>
                 )}
+
+                <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
+                  {medicalProfile.gender && <span>Gender: {medicalProfile.gender}</span>}
+                  {medicalProfile.age && <span>Age: {medicalProfile.age}</span>}
+                  {medicalProfile.weight && <span>Weight: {medicalProfile.weight} kg</span>}
+                  {medicalProfile.address && <span>Address: {medicalProfile.address}</span>}
+                </div>
 
                 {medicalProfile.allergies && (
                   <div>

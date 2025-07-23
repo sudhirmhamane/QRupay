@@ -48,7 +48,7 @@ export const Header = () => {
               <Heart className="w-6 h-6 text-primary-foreground" />
             </div>
             <span className="text-2xl font-bold">
-              <span className="text-primary">QR</span>UPAY
+              <span className="text-primary">QR</span>upay
             </span>
           </div>
 

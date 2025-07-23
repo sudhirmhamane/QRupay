@@ -49,7 +49,7 @@ export const Features = () => {
             Features That <span className="text-primary">Save Lives</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            QRUPAY bridges the communication gap in emergency situations, ensuring your vital medical 
+            <span className="text-primary">QR</span>upay bridges the communication gap in emergency situations, ensuring your vital medical 
             information is always accessible when you need it most.
           </p>
         </div>

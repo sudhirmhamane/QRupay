@@ -33,7 +33,7 @@ export const HowItWorks = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-            How <span className="text-primary">QRUPAY</span> Works
+            How <span className="text-primary">QR</span>upay Works
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Simple, secure, and life-saving. Set up your emergency medical profile in minutes 

@@ -16,6 +16,7 @@ const ProfileEdit = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [photoUploading, setPhotoUploading] = useState(false);
   const [formData, setFormData] = useState({
     blood_group: '',
     allergies: '',
@@ -24,7 +25,11 @@ const ProfileEdit = () => {
     emergency_contact_name: '',
     emergency_contact_phone: '',
     emergency_contact_relation: '',
-    additional_notes: ''
+    additional_notes: '',
+    gender: '',
+    age: '',
+    address: '',
+    weight: '',
   });
 
   useEffect(() => {
@@ -48,15 +53,21 @@ const ProfileEdit = () => {
       }
 
       if (data) {
+        // Use type assertion to allow extra fields like 'gender' and 'address'
+        const profile = data as typeof data & { gender?: string; age?: number; weight?: string; address?: string };
         setFormData({
-          blood_group: data.blood_group || '',
-          allergies: data.allergies || '',
-          chronic_conditions: data.chronic_conditions || '',
-          medications: data.medications || '',
-          emergency_contact_name: data.emergency_contact_name || '',
-          emergency_contact_phone: data.emergency_contact_phone || '',
-          emergency_contact_relation: data.emergency_contact_relation || '',
-          additional_notes: data.additional_notes || ''
+          blood_group: profile.blood_group || '',
+          allergies: profile.allergies || '',
+          chronic_conditions: profile.chronic_conditions || '',
+          medications: profile.medications || '',
+          emergency_contact_name: profile.emergency_contact_name || '',
+          emergency_contact_phone: profile.emergency_contact_phone || '',
+          emergency_contact_relation: profile.emergency_contact_relation || '',
+          additional_notes: profile.additional_notes || '',
+          gender: profile.gender || '',
+          age: profile.age ? String(profile.age) : '',
+          address: profile.address || '',
+          weight: profile.weight ? String(profile.weight) : '',
         });
       }
     } catch (error: any) {
@@ -75,6 +86,7 @@ const ProfileEdit = () => {
           description: 'Emergency contact name and phone are required',
           variant: 'destructive'
         });
+        setLoading(false);
         return;
       }
 
@@ -82,7 +94,9 @@ const ProfileEdit = () => {
         .from('medical_profiles')
         .upsert({
           user_id: user?.id,
-          ...formData
+          ...formData,
+          age: formData.age ? parseInt(formData.age) : null,
+          weight: formData.weight ? parseFloat(formData.weight) : null
         }, {
           onConflict: 'user_id'
         });
@@ -201,6 +215,62 @@ const ProfileEdit = () => {
                     value={formData.emergency_contact_relation}
                     onChange={(e) => handleInputChange('emergency_contact_relation', e.target.value)}
                     placeholder="e.g., Spouse, Parent, Sibling"
+                  />
+                </div>
+
+                {/* Gender */}
+                <div className="space-y-2">
+                  <Label htmlFor="gender">Gender</Label>
+                  <Select
+                    value={formData.gender}
+                    onValueChange={(value) => handleInputChange('gender', value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select gender" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Male">Male</SelectItem>
+                      <SelectItem value="Female">Female</SelectItem>
+                      <SelectItem value="Other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Age */}
+                <div className="space-y-2">
+                  <Label htmlFor="age">Age</Label>
+                  <Input
+                    id="age"
+                    type="number"
+                    min={0}
+                    value={formData.age}
+                    onChange={(e) => handleInputChange('age', e.target.value)}
+                    placeholder="Enter your age"
+                  />
+                </div>
+
+                {/* Weight */}
+                <div className="space-y-2">
+                  <Label htmlFor="weight">Weight (kg)</Label>
+                  <Input
+                    id="weight"
+                    type="number"
+                    min={0}
+                    value={formData.weight}
+                    onChange={(e) => handleInputChange('weight', e.target.value)}
+                    placeholder="Enter your weight"
+                  />
+                </div>
+
+                {/* Address */}
+                <div className="space-y-2 md:col-span-2">
+                  <Label htmlFor="address">Address</Label>
+                  <Textarea
+                    id="address"
+                    value={formData.address}
+                    onChange={(e) => handleInputChange('address', e.target.value)}
+                    placeholder="Enter your address"
+                    rows={2}
                   />
                 </div>
               </div>

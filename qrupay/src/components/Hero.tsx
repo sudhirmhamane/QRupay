@@ -26,13 +26,13 @@ export const Hero = () => {
                 Emergency Medical System
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                <span className="text-primary">QR</span>UPAY – Your Life,
+                <span className="text-primary">QR</span>upay – Your Life,
                 <br />
                 <span className="text-foreground">One Scan Away</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Store critical medical information securely. Generate a QR code for instant emergency access. 
-                When every second counts, QRUPAY ensures your medical data is always available.
+                When every second counts, <span className="text-primary">QR</span>upay ensures your medical data is always available.
               </p>
             </div>
 

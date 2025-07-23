@@ -111,7 +111,7 @@ const Dashboard = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-2">
               <Heart className="w-8 h-8 text-medical-primary" />
-              <h1 className="text-xl font-bold text-medical-dark">QRUPAY Dashboard</h1>
+              <h1 className="text-xl font-bold text-medical-dark"><span className="text-primary">QR</span>upay Dashboard</h1>
             </div>
             <div className="flex gap-2 flex-row-reverse items-center">
               <Button onClick={handleSignOut} variant="outline" size="sm">

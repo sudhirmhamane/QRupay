@@ -13,6 +13,10 @@ interface MedicalProfile {
   emergency_contact_phone: string;
   emergency_contact_relation: string | null;
   additional_notes: string | null;
+  gender?: string | null;
+  age?: string | number | null;
+  address?: string | null;
+  weight?: string | number | null;
 }
 
 interface MedicalProfileSummaryProps {
@@ -38,7 +42,13 @@ export const MedicalProfileSummary: React.FC<MedicalProfileSummaryProps> = ({
                 <Badge variant="destructive">{profile.blood_group}</Badge>
               )}
             </div>
-            
+            {/* Gender, Age, Weight, Address */}
+            <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+              {profile.gender && <span>Gender: {profile.gender}</span>}
+              {profile.age && <span>Age: {profile.age}</span>}
+              {profile.weight && <span>Weight: {profile.weight} kg</span>}
+              {profile.address && <span>Address: {profile.address}</span>}
+            </div>
             {profile.allergies && (
               <div className="flex items-start gap-2">
                 <AlertTriangle className="w-4 h-4 text-destructive mt-0.5" />
@@ -73,6 +83,44 @@ export const MedicalProfileSummary: React.FC<MedicalProfileSummaryProps> = ({
               )}
             </div>
             <p className="text-medical-primary font-medium">{profile.emergency_contact_phone}</p>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Personal Details Section */}
+      <Card className="border-medical-accent border-2">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-medical-accent">
+            <User className="w-5 h-5" />
+            Personal Details
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex flex-wrap gap-6 text-base text-medical-dark font-medium">
+            {profile.gender && (
+              <div>
+                <span className="block text-muted-foreground text-sm">Gender</span>
+                <span>{profile.gender}</span>
+              </div>
+            )}
+            {profile.age && (
+              <div>
+                <span className="block text-muted-foreground text-sm">Age</span>
+                <span>{profile.age}</span>
+              </div>
+            )}
+            {profile.weight && (
+              <div>
+                <span className="block text-muted-foreground text-sm">Weight</span>
+                <span>{profile.weight} kg</span>
+              </div>
+            )}
+            {profile.address && (
+              <div className="w-full">
+                <span className="block text-muted-foreground text-sm">Address</span>
+                <span>{profile.address}</span>
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>

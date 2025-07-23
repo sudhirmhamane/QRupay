@@ -28,7 +28,7 @@ export const CTA = () => {
           "Scan. Save. Survive."
           </h2>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Join QRUPAY to keep emergency medical information 
+            Join <span className="text-white">QR</span>upay to keep emergency medical information 
             accessible and secure. Start creating your life-saving QR profile today.
           </p>
         </div>

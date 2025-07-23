@@ -48,3 +48,20 @@ export async function deleteMedication(id: string) {
     .delete()
     .eq('id', id);
 }
+
+export async function getMedicalProfile(userId: string) {
+  return supabase
+    .from('medical_profiles')
+    .select('*')
+    .eq('user_id', userId)
+    .single();
+}
+
+export async function updateMedicalProfile(userId: string, data: any) {
+  return supabase
+    .from('medical_profiles')
+    .upsert({
+      user_id: userId,
+      ...data,
+    }, { onConflict: 'user_id' });
+}

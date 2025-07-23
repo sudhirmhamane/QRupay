@@ -70,7 +70,7 @@ export const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
       printWindow.document.write(`
         <html>
           <head>
-            <title>QRUPAY - Emergency QR Code</title>
+            <title><span className="text-primary">QR</span>upay - Emergency QR Code</title>
             <style>
               body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
               .qr-container { margin: 20px auto; }
@@ -81,7 +81,7 @@ export const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
             </style>
           </head>
           <body>
-            <h1>🚨 QRUPAY Emergency QR Code</h1>
+            <h1>🚨 <span className="text-primary">QR</span>upay Emergency QR Code</h1>
             <div class="qr-container">
               <img src="${qrCodeDataUrl}" alt="Emergency QR Code" style="width: 200px; height: 200px;" />
             </div>

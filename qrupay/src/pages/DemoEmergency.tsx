@@ -2,13 +2,13 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Heart, Phone, AlertTriangle, Pill, FileText, ArrowLeft } from 'lucide-react';
+import { Heart, Phone, AlertTriangle, Pill, FileText, ArrowLeft, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const DemoEmergency = () => {
   const navigate = useNavigate();
 
-  // Demo medical profile data
+  // Demo medical profile data with new fields
   const demoProfile = {
     emergency_contact_name: "Jane Doe",
     emergency_contact_phone: "+1 (555) 123-4567",
@@ -17,7 +17,11 @@ const DemoEmergency = () => {
     allergies: "Penicillin, Shellfish, Bee stings",
     chronic_conditions: "Type 2 Diabetes, Hypertension",
     medications: "Metformin 500mg twice daily, Lisinopril 10mg once daily, Aspirin 81mg daily",
-    additional_notes: "Wears contact lenses. Has medical alert bracelet. Prefers right arm for blood pressure checks due to previous surgery on left arm."
+    additional_notes: "Wears contact lenses. Has medical alert bracelet. Prefers right arm for blood pressure checks due to previous surgery on left arm.",
+    gender: "Female",
+    age: 42,
+    weight: 68,
+    address: "123 Main St, Springfield, IL"
   };
 
   const callEmergencyContact = () => {
@@ -93,6 +97,36 @@ const DemoEmergency = () => {
                 >
                   CALL NOW
                 </button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Personal Details Section */}
+          <Card className="border-medical-accent border-2">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-medical-accent">
+                <User className="w-5 h-5" />
+                Personal Details
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex flex-wrap gap-6 text-base text-medical-dark font-medium">
+                <div>
+                  <span className="block text-muted-foreground text-sm">Gender</span>
+                  <span>{demoProfile.gender}</span>
+                </div>
+                <div>
+                  <span className="block text-muted-foreground text-sm">Age</span>
+                  <span>{demoProfile.age}</span>
+                </div>
+                <div>
+                  <span className="block text-muted-foreground text-sm">Weight</span>
+                  <span>{demoProfile.weight} kg</span>
+                </div>
+                <div className="w-full">
+                  <span className="block text-muted-foreground text-sm">Address</span>
+                  <span>{demoProfile.address}</span>
+                </div>
               </div>
             </CardContent>
           </Card>
