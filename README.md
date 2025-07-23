@@ -11,7 +11,7 @@
 
 ## 📌 Project Overview
 
-**MedLink** (aka **QRUPA**) is a modern web application designed to save lives in emergencies. Often, unconscious or speechless patients can't communicate essential health information like blood group, allergies, or emergency contacts. MedLink solves this by allowing users to store this data securely and generate a personal **QR code** linked to a public **read-only emergency profile**.
+**QRUPAY** is a modern web application designed to save lives in emergencies. Often, unconscious or speechless patients can't communicate essential health information like blood group, allergies, or emergency contacts. MedLink solves this by allowing users to store this data securely and generate a personal **QR code** linked to a public **read-only emergency profile**.
 
 This QR can be printed, worn, or used as a phone wallpaper. When scanned, it shows vital details **without login**, helping doctors or rescuers take informed action quickly.
 
