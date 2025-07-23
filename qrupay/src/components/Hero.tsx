@@ -1,7 +1,7 @@
 import { Heart, Shield, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "@/assets/hero-image.png";
 
 export const Hero = () => {
   const navigate = useNavigate();
@@ -74,8 +74,8 @@ export const Hero = () => {
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </div>
-            <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-accent/40 rounded-full blur-3xl"></div>
+            <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/20 rounded-full blur-xl"></div>
+            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-accent/40 rounded-full blur-xl"></div>
           </div>
         </div>
       </div>
