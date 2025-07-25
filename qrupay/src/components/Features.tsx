@@ -1,7 +1,19 @@
-import { QrCode, Shield, Clock, Users, Smartphone, AlertTriangle } from "lucide-react";
+import { QrCode, Shield, Clock, Users, Smartphone, AlertTriangle, Bot, Pill } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const features = [
+  {
+    icon: Bot,
+    title: "AI Health Chatbot",
+    description: "Get instant answers to health-related queries with our intelligent chatbot powered by Groq's LLaMA model.",
+    color: "text-primary"
+  },
+  {
+    icon: Pill,
+    title: "Medication Reminders",
+    description: "Never miss your prescriptions again. Schedule reminders and view your active meds easily.",
+    color: "text-success"
+  },
   {
     icon: QrCode,
     title: "Instant QR Access",
@@ -29,7 +41,7 @@ const features = [
   {
     icon: Users,
     title: "Emergency Contacts",
-    description: "Store multiple emergency contacts with phone numbers for immediate family notification.",
+    description: "Store emergency contacts with phone numbers for immediate family notification.",
     color: "text-success"
   },
   {

@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
-import { Heart } from 'lucide-react';
+import { Heart, Mail, Lock, User, Phone } from 'lucide-react';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -15,15 +15,13 @@ const Auth = () => {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const { signIn, signUp, user } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      navigate('/dashboard');
-    }
+    if (user) navigate('/dashboard');
   }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,12 +35,12 @@ const Auth = () => {
           toast({
             title: 'Login Error',
             description: error.message,
-            variant: 'destructive'
+            variant: 'destructive',
           });
         } else {
           toast({
             title: 'Success',
-            description: 'Logged in successfully!'
+            description: 'Logged in successfully!',
           });
         }
       } else {
@@ -50,7 +48,7 @@ const Auth = () => {
           toast({
             title: 'Error',
             description: 'Full name is required',
-            variant: 'destructive'
+            variant: 'destructive',
           });
           return;
         }
@@ -60,12 +58,12 @@ const Auth = () => {
           toast({
             title: 'Sign Up Error',
             description: error.message,
-            variant: 'destructive'
+            variant: 'destructive',
           });
         } else {
           toast({
             title: 'Success',
-            description: 'Account created! Please check your email to verify your account.'
+            description: 'Account created! Please verify your email.',
           });
         }
       }
@@ -73,7 +71,7 @@ const Auth = () => {
       toast({
         title: 'Error',
         description: 'Something went wrong. Please try again.',
-        variant: 'destructive'
+        variant: 'destructive',
       });
     } finally {
       setIsLoading(false);
@@ -82,86 +80,114 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <Heart className="w-8 h-8 text-medical-primary" />
-            <h1 className="text-2xl font-bold text-medical-dark"><span className="text-primary">QR</span>upay</h1>
+      <Card className="w-full max-w-md shadow-lg rounded-2xl">
+        <CardHeader className="text-center space-y-2">
+          <div className="flex items-center justify-center gap-2">
+            <Heart className="w-8 h-8 text-medical-primary animate-pulse" />
+            <h1 className="text-3xl font-extrabold text-medical-dark">
+              <span className="text-primary">QR</span>upay
+            </h1>
           </div>
           <CardTitle className="text-xl">
-            {isLogin ? 'Sign In' : 'Create Account'}
+            {isLogin ? 'Welcome Back 👋' : 'Create Your Account'}
           </CardTitle>
         </CardHeader>
+
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
               <>
-                <div className="space-y-2">
+                <div>
                   <Label htmlFor="fullName">Full Name *</Label>
-                  <Input
-                    id="fullName"
-                    type="text"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    required={!isLogin}
-                    placeholder="Enter your full name"
-                  />
+                  <div className="relative">
+                    <User className="absolute left-2 top-2.5 text-muted-foreground h-5 w-5" />
+                    <Input
+                      id="fullName"
+                      type="text"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="pl-10"
+                      placeholder="Enter Your Name"
+                      required
+                    />
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="Enter your phone number"
-                  />
+                <div>
+                  <Label htmlFor="phone">Phone</Label>
+                  <div className="relative">
+                    <Phone className="absolute left-2 top-2.5 text-muted-foreground h-5 w-5" />
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="pl-10"
+                      placeholder="Enter Your Phone Number"
+                    />
+                  </div>
                 </div>
               </>
             )}
-            
-            <div className="space-y-2">
+
+            <div>
               <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder="Enter your email"
-              />
+              <div className="relative">
+                <Mail className="absolute left-2 top-2.5 text-muted-foreground h-5 w-5" />
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="pl-10"
+                  required
+                  placeholder="Enter Your Email"
+                />
+              </div>
             </div>
 
-            <div className="space-y-2">
+            <div>
               <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                placeholder="Enter your password"
-                minLength={6}
-              />
+              <div className="relative">
+                <Lock className="absolute left-2 top-2.5 text-muted-foreground h-5 w-5" />
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="pl-10"
+                  required
+                  minLength={6}
+                  placeholder="••••••••"
+                />
+              </div>
             </div>
 
             <Button
               type="submit"
               variant="medical"
-              className="w-full"
+              className="w-full mt-2"
               disabled={isLoading}
             >
-              {isLoading ? 'Loading...' : (isLogin ? 'Sign In' : 'Create Account')}
+              {isLoading
+                ? 'Please wait...'
+                : isLogin
+                ? 'Sign In'
+                : 'Create Account'}
             </Button>
           </form>
 
-          <div className="mt-4 text-center">
+          <div className="mt-4 text-center text-sm">
+            <span className="text-muted-foreground">
+              {isLogin
+                ? "Don't have an account? "
+                : 'Already have an account? '}
+            </span>
             <button
               type="button"
               onClick={() => setIsLogin(!isLogin)}
-              className="text-medical-primary hover:text-medical-secondary transition-colors"
+              className="text-medical-primary font-medium hover:underline"
             >
-              {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
+              {isLogin ? 'Sign up' : 'Sign in'}
             </button>
           </div>
         </CardContent>

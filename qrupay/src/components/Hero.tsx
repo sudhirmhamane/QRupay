@@ -56,10 +56,6 @@ export const Hero = () => {
 
             <div className="flex items-center gap-8 pt-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Shield className="w-5 h-5 text-success" />
-                HIPAA Compliant
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <QrCode className="w-5 h-5 text-primary" />
                 Instant Access
               </div>

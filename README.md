@@ -1,7 +1,7 @@
-# QRUPAY
+# QRupay
 
 
-# 🩺 QRUPAY – Emergency Health QR System
+# 🩺 QRupay – Emergency Health QR System
 
 > 🚑 A smart solution for emergency situations – MedLink stores your critical health data and links it to a scannable QR code for instant access by first responders.
 
@@ -11,7 +11,7 @@
 
 ## 📌 Project Overview
 
-**QRUPAY** is a modern web application designed to save lives in emergencies. Often, unconscious or speechless patients can't communicate essential health information like blood group, allergies, or emergency contacts. MedLink solves this by allowing users to store this data securely and generate a personal **QR code** linked to a public **read-only emergency profile**.
+**QRupay** is a modern web application designed to save lives in emergencies. Often, unconscious or speechless patients can't communicate essential health information like blood group, allergies, or emergency contacts. MedLink solves this by allowing users to store this data securely and generate a personal **QR code** linked to a public **read-only emergency profile**.
 
 This QR can be printed, worn, or used as a phone wallpaper. When scanned, it shows vital details **without login**, helping doctors or rescuers take informed action quickly.
 
@@ -19,6 +19,8 @@ This QR can be printed, worn, or used as a phone wallpaper. When scanned, it sho
 
 ## 🔑 Key Features
 
+- 💊 **Medication Reminders:** Track and manage your medications with smart scheduling
+- 🤖 **AI Health Chatbot:** Get real-time answers to your health queries via an integrated AI chatbot
 - 🔐 Secure user authentication (JWT or Supabase Auth)
 - 📝 Medical Info Form: name, age, blood group, allergies, chronic conditions, contact
 - 📷 Unique QR code per user

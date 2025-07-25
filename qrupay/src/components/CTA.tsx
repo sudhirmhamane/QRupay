@@ -54,7 +54,7 @@ export const CTA = () => {
         </div>
 
         <div className="mt-8 text-sm opacity-75">
-          ✓ Free to start ✓ HIPAA compliant ✓ No credit card required
+          ✓ Free to start ✓ No credit card required
         </div>
       </div>
     </section>

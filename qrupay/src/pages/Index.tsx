@@ -18,28 +18,6 @@ const Index = () => {
         <Hero />
         <Features />
         <HowItWorks />
-        {user && (
-          <section className="max-w-2xl mx-auto my-16 px-8 py-8 bg-white/80 border border-medical-primary/20 rounded-2xl shadow-lg flex flex-col items-center">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-medical-primary flex items-center gap-2">
-              <span role="img" aria-label="Medication">
-                💊
-              </span>{" "}
-              Medication Reminders
-            </h2>
-            <p className="mb-6 text-center text-medical-dark text-base md:text-lg">
-              Never miss a dose! Track, update, and manage your medications
-              easily.
-            </p>
-            <Button
-              size="lg"
-              variant="medical"
-              className="px-8 py-3 rounded-full font-medium shadow-medical transition hover:scale-105"
-              onClick={() => navigate("/medications")}
-            >
-              Go to Medication Reminders
-            </Button>
-          </section>
-        )}
         <CTA />
       </main>
     </div>

@@ -213,7 +213,7 @@ const DemoEmergency = () => {
             <CardContent className="pt-6 text-center">
               <h3 className="text-2xl font-bold mb-4">Ready to Create Your Own Profile?</h3>
               <p className="mb-6 opacity-90">
-                This demo shows how QRUPA can save lives by providing instant access to critical medical information.
+                This demo shows how QRupay can save lives by providing instant access to critical medical information.
               </p>
               <Button 
                 onClick={() => navigate('/auth')}
