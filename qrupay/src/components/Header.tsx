@@ -70,6 +70,16 @@ export const Header = () => {
               >
                 How It Works
               </button>
+
+              {user && (
+                <button
+                onClick={() => handleSectionNav("contact")}
+                className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer"
+              >
+                Contact
+              </button>
+              )}
+
               {user && (
                 <Link
                   to="/dashboard"
@@ -78,6 +88,9 @@ export const Header = () => {
                   Dashboard
                 </Link>
               )}
+
+      
+              
             </nav>
 
             {!user && (

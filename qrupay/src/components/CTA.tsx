@@ -15,20 +15,20 @@ export const CTA = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-primary text-primary-foreground">
+    <section className="py-20 px-4 bg-accent text-primary-foreground">
       <div className="container mx-auto max-w-4xl text-center">
         <div className="mb-8">
           <div className="flex items-center justify-center mb-6">
-            <Heart className="w-16 h-16" />
+            <Heart className="w-16 h-16 text-red-600" />
           </div>
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-black">
             Ready to Protect Your Health?
           </h2>
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-black">
           "Scan. Save. Survive."
           </h2>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Join <span className="text-white">QR</span>upay to keep emergency medical information 
+          <p className="text-xl opacity-90 max-w-2xl mx-auto text-black">
+            Join <span className="text-red-600">QR</span>upay to keep emergency medical information 
             accessible and secure. Start creating your life-saving QR profile today.
           </p>
         </div>

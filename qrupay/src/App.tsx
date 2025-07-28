@@ -16,6 +16,7 @@ import SymptomChecker from "./pages/SymptomChecker";
 import HealthServices from "./pages/HealthServices";
 import NotFound from "./pages/NotFound";
 import MedicationReminders from "./pages/MedicationReminders";
+import { Contact } from "./components/Contact";
 
 const queryClient = new QueryClient();
 
@@ -38,7 +39,8 @@ const App = () => (
             <Route path="/symptom-checker" element={<SymptomChecker />} />
             <Route path="/health-services" element={<HealthServices />} />
             <Route path="/medications" element={<MedicationReminders />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/contact" element={<Contact />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
