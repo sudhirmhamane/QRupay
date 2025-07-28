@@ -73,11 +73,11 @@ export const Header = () => {
 
               {user && (
                 <button
-                onClick={() => handleSectionNav("contact")}
-                className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer"
-              >
-                Contact
-              </button>
+                  onClick={() => handleSectionNav("contact")}
+                  className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer"
+                >
+                  Contact
+                </button>
               )}
 
               {user && (
@@ -88,9 +88,6 @@ export const Header = () => {
                   Dashboard
                 </Link>
               )}
-
-      
-              
             </nav>
 
             {!user && (
@@ -130,6 +127,15 @@ export const Header = () => {
                   How It Works
                 </button>
                 {user && (
+                  <button
+                    onClick={() => handleSectionNav("contact")}
+                    className="bg-transparent border-0 p-0 m-0 text-foreground hover:text-primary transition-colors cursor-pointer text-left"
+                  >
+                    Contact
+                  </button>
+                )}
+
+                {user && (
                   <Link
                     to="/dashboard"
                     className="text-foreground hover:text-primary transition-colors"
@@ -137,12 +143,6 @@ export const Header = () => {
                     Dashboard
                   </Link>
                 )}
-                <Link
-                  to="/"
-                  className="text-foreground hover:text-primary transition-colors"
-                >
-                  Home
-                </Link>
               </nav>
               {!user && (
                 <div className="flex flex-col gap-2 pt-4 border-t">

@@ -20,10 +20,12 @@ const Index = () => {
         <Hero />
         <Features />
         <HowItWorks />
-        <Contact />
+        {user && (
+          <Contact />
+        )}
+        
         <CTA />
         <Footer />
-        
       </main>
     </div>
   );

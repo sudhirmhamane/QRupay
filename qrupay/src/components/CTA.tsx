@@ -53,7 +53,7 @@ export const CTA = () => {
           </Button>
         </div>
 
-        <div className="mt-8 text-sm opacity-75">
+        <div className="mt-8 text-sm opacity-75 text-red-500">
           ✓ Free to start ✓ No credit card required
         </div>
       </div>
