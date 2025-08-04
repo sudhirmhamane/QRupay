@@ -63,7 +63,7 @@ const Auth = () => {
         } else {
           toast({
             title: 'Success',
-            description: 'Account created! Please verify your email.',
+            description: 'Account created!',
           });
         }
       }
