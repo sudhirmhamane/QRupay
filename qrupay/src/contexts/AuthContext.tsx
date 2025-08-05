@@ -33,6 +33,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
+        console.log('[AuthContext] onAuthStateChange:', { event, session, user: session?.user });
       }
     );
 
@@ -41,6 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
+      console.log('[AuthContext] getSession:', { session, user: session?.user });
     });
 
     return () => subscription.unsubscribe();
