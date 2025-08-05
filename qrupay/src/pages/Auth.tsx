@@ -81,7 +81,7 @@ const Auth = () => {
         } else {
           toast({
             title: 'Success',
-            description: 'Account created!',
+            description: 'Account created! Please check your Gmail for the verification email.',
           });
         }
       }
