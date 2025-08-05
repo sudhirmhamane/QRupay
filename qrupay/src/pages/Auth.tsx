@@ -18,10 +18,14 @@ const Auth = () => {
 
   // Google login handler
   const handleGoogleLogin = async () => {
+    const redirectTo =
+      window.location.hostname === 'qrupay.vercel.app'
+        ? 'https://qrupay.vercel.app/dashboard'
+        : window.location.origin + '/dashboard';
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: window.location.origin + '/dashboard',
+        redirectTo,
       },
     });
     if (error) {
