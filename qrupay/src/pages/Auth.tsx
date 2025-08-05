@@ -194,14 +194,14 @@ const Auth = () => {
             </Button>
 
             {/* Google Login Button */}
-            <Button
+            {/* <Button
               type="button"
               variant="outline"
               className="w-full mt-2"
               onClick={handleGoogleLogin}
             >
               Sign in with Google
-            </Button>
+            </Button> */}
           </form>
 
           <div className="mt-4 text-center text-sm">
